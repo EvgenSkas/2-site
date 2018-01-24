@@ -1,0 +1,284 @@
+@import "vars"
+
+/*==========  Desktop First  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px)
+
+	/**/
+	.statistics
+		top: 420px
+		ul
+			justify-content: space-around
+			padding-top: 400px
+	.dignity
+		img
+			display: none
+		.slick-slider-dignity
+			.slick-prev
+				left: 0px
+			.slick-next
+				right: 0px
+	.top-products
+		ul.products-items
+			justify-content: space-around
+		.wrapper
+			button:before,
+			button:after
+				display: none
+	.brends-grads
+		top: 3505px
+	.comments
+		top: 4300px
+	.delivery
+		top: 5670px
+	.gifts
+		top: 7487px
+		.slider-gifts
+			.slick-prev
+				left: 360px
+			.slick-next
+				right: 360px
+	.cart
+		top: 8900px
+	.footer-main
+		top: 11905px
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px)
+	/**/
+	li.phone span,
+	li.phone a 
+		display: none
+	.banner
+		.banner-content 
+			nav
+				display: none
+	.statistics
+		top: 600px
+		ul
+			justify-content: space-around
+			padding-top: 220px
+	.pop-up-slider
+		background: #fff
+		padding: 30px 0
+		.product-img
+			img
+				padding-bottom: 30px
+	.pop-up-slider
+		.slick-slider-product
+			.slick-dots
+				top: 330px
+		.close
+			top: 0
+	.brends-grads
+		top: 4150px
+	.comments
+		top: 4945px
+	.delivery
+		top: 5600px
+	.gifts
+		top: 7438px
+		.slider-gifts
+			.slick-prev
+				left: 250px
+			.slick-next
+				right: 250px
+	.cart
+		top: 8900px
+		.feedback-wrap .feedback input
+			width: 80%
+			margin: 10px 0
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px)
+	/**/
+	.advantage ul.advantage-items
+		justify-content: space-around
+
+	.video_block
+		padding-top: 40px
+		.form-snake
+			display: none
+		.slider-wrapp
+			padding-top: 10px
+			width: 320px
+			height: 220px
+			.slick-prev,
+			.slick-next
+				display: none !important
+			iframe
+				width: 320px
+				height: 220px
+	.statistics
+		top: 400px
+	.statistics
+		ul
+			justify-content: space-around
+			padding-top: 300px
+	.pop-up-slider
+		padding: 30px 0
+		.product-content
+			display: flex
+			flex-direction: column
+			align-items: center
+			.left-content-product
+				flex-basis: auto
+				text-align: center
+			.right-content-product
+				flex-basis: auto
+			p 
+				display: none
+			a 
+				display: block
+				text-align: center
+				padding-right: 30px
+	.top-products
+		top: 1800px
+	.brends-grads
+		top: 4340px
+	.comments
+		top: 5300px
+		.comments-slider-wrap
+			.slick-prev
+				left: 0px
+			.slick-next
+				right: 0px
+	.delivery
+		top: 5970px
+		.five-steps
+			width: 100%
+			background-image: none
+			padding-bottom: 30px
+			li,
+			li:nth-child(odd),
+			li:nth-child(even)
+				position: relative
+				width: 300px
+				display: block
+				margin: 0 auto
+				text-align: center
+				padding-top: 160px
+				.step-text
+					text-align: center
+					display: block
+					margin-right: 0
+				.step-icon
+					margin-right: 0
+					position: absolute
+					top: 25px
+					left: 100px
+				.icon-pos2
+					background-position: -154px 0
+				.icon-pos3
+					background-position: -295px 0
+				.icon-pos4
+					background-position: -436px 0
+				.icon-pos5
+					background-position: -572px 0
+			li:nth-child(even)
+				float: none
+			li:nth-child(odd)
+				float: none
+				.step-text
+					margin-right: 0
+	.gifts
+		top: 7788px
+		.slider-gifts
+			.slick-prev
+				left: 0px
+			.slick-next
+				right: 0px
+	.cart
+		top: 9350px
+	.footer-main
+		top: 12740px
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px)
+	/**/
+	li.phone
+		display: none
+	h2
+		font-size: emy(34)
+		line-height: 34px
+		margin-bottom: 50px
+	.statistics
+		ul
+			justify-content: space-around
+			padding-top: 220px
+	.pop-up-slider
+		.slick-slider-product
+			.slick-dots
+				top: -30px
+	.statistics ul li 
+		line-height: 14px
+		span
+			font-size: emy(32)
+		p 	
+			font-size: emy(14)
+	.brends-grads
+		top: 4455px
+	.comments
+		top: 5810px
+		.comments-slider-wrap
+			padding-bottom: 60px
+			.slick-dots
+				top: 400px
+			.slick-dots li button
+				background: $blue
+			.slick-dots li.slick-active
+				border: 3px solid $blue
+	.delivery
+		top: 6480px
+	.gifts
+		top: 8400px
+	.cart
+		top: 10000px
+		padding-bottom: 400px
+	.footer-main
+		top: 13720px
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px)
+	/**/
+	li.phone,
+	li.basket
+		display: none
+	.comments
+		top: 6220px
+		.comments-slider-wrap
+			.slick-dots
+				top: 380px
+	.delivery
+		top: 6890px
+	.gifts
+		top: 8835px
+	.cart
+		top: 10500px
+	.footer-main
+		top: 14320px
+/*==========  Mobile First  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px)
+	/**/
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px)
+	/**/
+
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px)
+	/**/
+	
+
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px)
+	/**/
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px)
+	/**/
+

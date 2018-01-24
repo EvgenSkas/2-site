@@ -1,0 +1,1298 @@
+@function emy($pxsize:$pxbase) 
+    @return ($pxsize/$pxbase)+rem
+@import "fonts"
+@import "libs"
+@import "vars"
+
+*::-webkit-input-placeholder
+	color: #adadad
+	font-size: 14px
+
+*:-moz-placeholder
+	color: #adadad
+	font-size: 14px
+
+*::-moz-placeholder
+	color: #adadad
+	font-size: 14px
+
+*:-ms-input-placeholder
+	color: #adadad
+	font-size: 14px
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+html, body
+	height: 100%
+
+body
+	position: relative
+	top: 0
+	left: 0
+	font-size: emy(14)
+	min-width: 320px
+	line-height: emy(24)
+	font-family: $arial
+	overflow-x: hidden
+	background: #fff
+h2
+	font-size: emy(44)
+	line-height: 56px
+	font-family: $default-font-bold
+	color: #fff
+	text-align: center
+	padding: 0
+	margin: 0
+h3
+	font-size: emy(24)
+	font-family: $default-font-bold
+h4
+	font-size: emy(17)
+	font-family: $default-font-bold
+ul, li, p, h4, button, blockquote, body
+	padding: 0
+	margin: 0
+li
+	list-style: none
+a 
+	text-decoration: none
+	font-family: $default-font-bold
+	color: #fff
+.hidden
+	display: none
+.btn 
+	padding: 20px 60px
+	border: none
+	border-radius: 6px
+	font-family: $default-font-bold
+	font-size: 17px
+	line-height: 18px
+	text-transform: uppercase
+	color: #fff
+	cursor: pointer
+
+.blue
+	color: #323c7a
+.wrapper
+	text-align: center
+.form-snake
+		margin: 0 auto
+		width: 130px
+		height: 20px
+		background: url('../img/sprite-form-snake.svg') no-repeat 0 0
+		margin-bottom: 15px
+.bold
+	font-weight: bold
+// top-panel
+section.top-panel
+	position: fixed
+	width: 100%
+	padding: 15px 0
+	background: $red
+	font-family: $default-font-bold
+	z-index: 1000
+.top-panel-content
+	display: flex
+	justify-content: space-between
+	align-items: center
+	color: #fff
+li.logo
+	flex-basis: 440px
+li.phone 
+	flex-basis: 540px
+	a.icon-phone
+		display: inline-block
+		width: 30px
+		height: 30px
+		margin-right: 15px
+		font-size: 0
+		line-height: 36px
+		background: url('../img/icon-phone.png') no-repeat center center
+		border: 1px solid #fff 
+		border-radius: 50%
+	a 
+		margin-left: 20px
+		padding-bottom: 3px
+		border-bottom: 2px dotted #fff
+	
+li.basket a
+	display: block
+	font-size: 0
+	width: 38px
+	height: 38px
+	background: url('../img/basket.png') no-repeat center center
+
+.toggle-mnu 
+	display: block
+	width: 48px
+	height: 48px
+	background: rgba(0, 0, 0, 1)
+	border-radius: 50%
+	span:after, span:before 
+		content: ""
+		position: absolute
+		left: 0px
+		top: 8px
+
+	span:after
+		top: 16px
+	span 
+		position: relative
+		display: block
+		left: 12px
+		top: 14px
+	span, span:after, span:before
+		width: 24px
+		height: 4px
+		background-color: #fff
+		transition: all 0.3s
+		backface-visibility: hidden
+		border-radius: 2px
+	&.on span 
+		background-color: transparent
+	&.on span:before 
+		transform: rotate(45deg) translate(-1px, 0px)
+	&.on span:after 
+		transform: rotate(-45deg) translate(5px, -7px)
+.drop-down-menu
+	display: none
+	position: absolute
+	top: 90px
+	width: 100%
+	text-align: center
+	font-size: 31px
+	line-height: 58px
+	li
+		background: rgba(246, 59, 72, 0.95)
+	li:hover
+		background: rgba(220, 51, 60, 0.95)
+		transition: background 0.3s ease-in
+	a 
+.drop-down-menu.active
+	display: block
+// top-panel end
+
+// banner
+.banner
+	background: url('../img/bg_header.jpg') no-repeat center center 
+	background-size: cover
+	b
+	.banner-content
+		padding: 120px 0
+		nav
+			display: flex
+		.logo
+			flex-basis: 25%
+		ul
+			display: flex
+			flex-basis: 75%
+			justify-content: space-between
+			font-family: $default-font-bold
+			line-height: 44px
+		li
+			a
+				font-size: emy(14)
+				padding-bottom: 5px
+			a:hover
+				border-bottom: 2px solid #f6303e
+			.active
+				border-bottom: 2px solid #f6303e
+		h2
+			padding: 100px 0 30px
+		p 
+			display: inline-block
+			font-family: $default-font-bold
+			margin: 0 auto
+			text-align: center
+			font-size: emy(24)
+			line-height: 32px
+			color: #fff
+			padding: 30px 0 60px 
+			border-top: 1px solid #f6303e
+		button
+			display: block
+			margin: 0 auto
+			font-size: emy(24)
+			font-family: $default-font-bold
+			text-transform: uppercase
+			color: #fff
+			padding: 20px 60px
+			background: $red
+			box-shadow: 0 0 30px 0px $red
+			border: none
+			border-radius: 3px
+			cursor: pointer
+		button:hover
+			background: #FD3B49
+			box-shadow: 0 0 30px 0px #FD3B49
+		button:active
+			background: #d72936
+			box-shadow: 0 0 30px 0px #d72936
+		.arrow-down
+			display: inline-block
+			width: 55px
+			height: 55px
+			background: url('../img/arrow-down.png') no-repeat center center
+			cursor: pointer
+			margin: 130px 0 0
+			opacity: .7
+		.arrow-down:hover
+			opacity: 1
+			transition: opacity 0.1s ease-in
+.banner:after
+	content: ""
+	display: block
+	top: 840px
+	height: 120px
+	width: 100%
+	background: url('../img/banner_overlay.svg') no-repeat center top
+	z-index: 1
+	background-size: cover
+ // banner end
+ // Product-info
+.advantage
+	color: $blue
+	text-align: center
+	background: url('../img/bg-advantage.jpg') no-repeat center center
+	background-size: cover
+	padding-bottom: 420px
+	h2
+		padding: 60px 0 0px
+		color: $blue
+	p
+		padding-bottom: 60px
+		font-family: $default-font-bold
+		font-size: emy(17)
+	ul.advantage-items
+		display: flex
+		justify-content: space-between
+		align-content: space-around
+		align-items: space-between
+		flex-wrap: wrap
+		max-width: 660px
+		margin: 0 auto
+		li 
+			flex-basis: 180px
+			height: 230px
+			.advantage-icons
+				width: 135px
+				height: 135px
+				margin: 0 auto
+				background: url('../img/sprite_advantage.svg') no-repeat 0px -135px
+				border: 1px solid $red
+				border-radius: 25px
+			.sprite-pos1
+				background-position: -135px -135px
+			.sprite-pos2
+				background-position: -270px -135px
+		p
+			font-family: $arial
+			font-size: emy(16)
+			padding-top: 15px
+
+// Video
+
+.main-wrap-advantage
+	position: relative
+	height: 100%
+.video_block
+	position: absolute
+	width: 100%
+	margin-top: -80px
+	padding-top: 100px
+	padding-bottom: 250px
+	background: url('../img/bg-video1.png') no-repeat center center
+	background-size: cover
+	z-index: 5
+	.form-snake
+		margin-top: 15px
+		background-position: 0 -20px
+	.slider-wrapp
+		max-width: 620px
+		margin: 0 auto
+		padding-top: 150px
+		.slick-prev,
+		.slick-next
+			background: transparent
+			text-transform: uppercase
+			font-family: 'roundsBlack'
+			color: #fff
+			padding: 15px 25px
+			border: 3px solid white
+			border-top-left-radius: 25px
+			border-bottom-left-radius: 25px
+			min-width: 200px
+		.slick-prev:hover,
+		.slick-prev:focus,
+		.slick-next:hover,
+		.slick-next:focus
+		    cursor: pointer
+
+		.slick-prev
+			position: absolute
+			left: 110px
+			top: -100px
+
+		.slick-next
+			position: absolute
+			right: 110px
+			top: -100px
+			border-radius: 0 25px 25px 0
+	
+		/* Dots */
+		.slick-dotted.slick-slider
+		    margin-bottom: 30px
+		.slick-dots
+			position: absolute
+			width: 100%
+			bottom: -60px
+			text-align: center
+		.slick-dots li
+			display: inline-block
+			width: 30px
+			height: 30px			
+			margin-left: 5px
+			border: 3px solid transparent
+			border-radius: 50%
+			cursor: pointer
+		.slick-dots li button
+			display: block
+			width: 19px
+			height: 19px
+			margin: 3px
+			font-size: 0
+			background: #fff
+			border: none
+			border-radius: 50%
+			cursor: pointer
+			opacity: 1
+		.slick-dots li button:hover
+			opacity: 0.75
+			transition: opacity 0.1s ease-in
+		.slick-dots li.slick-active
+			border: 3px solid #fff
+		iframe
+			width: 620px
+			height: 340px
+		.bg-white
+			background: #fff
+			color: #d63513
+// video end
+
+// Statistics
+
+.statistics
+	position: absolute
+	top: 725px
+	width: 100%
+	background: url('../img/bg-statistics.jpg') no-repeat center center
+	background-size: cover
+	z-index: 4
+	ul
+		display: flex
+		justify-content: space-between
+		flex-wrap: wrap
+		padding: 145px 0
+		li 
+			color: #963E7A
+			text-align: center
+			flex-basis: 200px
+			padding-top: 10px
+			span
+				font-family: $default-font-bold
+				font-size: emy(74)
+
+// statistics
+
+// pop-up-slider
+
+.pop-up-slider
+	// display: none
+	position: absolute
+	top: 75px
+	width: 100%
+	z-index: 7
+	text-align: center
+	background: url('../img/bg-product.jpg') no-repeat center center
+	background-size: cover
+	padding: 120px 0 60px
+	.container
+		position: relative
+	.product-img
+		max-width: 520px
+		margin: 0 auto
+		img
+			padding: 0 0 140px
+			width: 100%
+	.product-content
+		display: flex
+		justify-content: space-between
+		width: 100%
+		color: $blue
+		text-align: left
+		.left-content-product
+			flex-basis: 450px
+			span
+				font-family: $default-font-bold
+				font-size: emy(24)
+				color: #f63341
+		.right-content-product
+			flex-basis: 1000px
+			p 
+				color: #4c4c4c
+			.btn 
+				background: $blue
+			.btn:hover
+				background: #3D4A9C
+			.btn:active
+				background: #1D2976
+			a 
+				color: $blue
+				margin-left: 25px
+	.slick-slider-product
+		.slick-prev,
+		.slick-next
+			font-size: 0		
+			line-height: 0
+			position: absolute
+			top: 170px
+			display: block
+			width: 70px
+			height: 70px
+			padding: 0
+			-webkit-transform: translate(0, -50%)
+			-ms-transform: translate(0, -50%)
+			transform: translate(0, -50%)
+			cursor: pointer
+			border: none
+			border-radius: 50%
+			outline: none
+			background: url('../img/slider-product-left.png') no-repeat center center
+			background-color: $blue
+			z-index: 2
+			opacity: 0.75
+		.slick-next
+			right: 0px
+			background: url('../img/slider-product-right.png') no-repeat center center
+			background-color: $blue
+		.slick-prev:hover,
+		.slick-prev:focus,
+		.slick-next:hover,
+		.slick-next:focus
+			background-color: #3D4A9C
+		/* Dots */
+		.slick-dotted.slick-slider
+		    margin-bottom: 30px
+		.slick-dots
+			position: absolute
+			width: 100%
+			top: 380px
+			text-align: center
+		.slick-dots li
+			display: inline-block
+			width: 30px
+			height: 30px			
+			margin-left: 5px
+			border: 3px solid transparent
+			border-radius: 50%
+			cursor: pointer
+		.slick-dots li button
+			display: block
+			width: 19px
+			height: 19px
+			margin: 3px
+			font-size: 0
+			background: $blue
+			border: none
+			border-radius: 50%
+			cursor: pointer
+			opacity: 1
+		.slick-dots li button:hover
+			opacity: 0.75
+			transition: opacity 0.1s ease-in
+		.slick-dots li.slick-active
+			border: 3px solid $blue
+	.close
+		position: absolute
+		top: -100px
+		right: 15px
+		width: 47px
+		height: 47px
+		border: none
+		border-radius: 50%
+		font-family: $default-font-bold
+		color: #fff
+		font-size: emy(24)
+		background: #F63341
+		z-index: 9
+	.close:hover
+		background: #FF4653
+	.close:active
+		background: #D72936
+// Pop-up slider end
+
+// Dignity
+
+.dignity
+	position: absolute
+	top: 1000px
+	width: 100%
+	z-index: 10
+	background: url('../img/bg-dignity.svg') no-repeat center center
+	background-size: cover
+	text-align: center
+	padding-top: 40px
+	h2
+		padding-top: 70px
+		color: $blue
+	p
+		padding-bottom: 40px
+		font-family: $default-font-bold
+		font-size: emy(17)
+		color: $blue
+	img
+		position: absolute
+		top: -40px
+		right: 80px
+	.slider-dignity-item
+		padding: 0 40px
+		.advantage-icons
+			width: 135px
+			height: 135px
+			margin: 0 auto
+			background: url('../img/sprite_advantage.svg') no-repeat 0px 0px
+			border: 1px solid $red
+			border-radius: 25px
+		.sprite-pos1
+			background-position: -135px 0px
+		.sprite-pos2
+			background-position: -270px 0px
+		p 
+			font-family: $arial
+			line-height: 23px
+	.slider-dignity-wrap
+		max-width: 750px
+		margin: 0 auto
+		padding-bottom: 140px
+	.slick-slider-dignity
+		.slick-prev,
+		.slick-next
+			font-size: 0		
+			line-height: 0
+			position: absolute
+			top: 90px
+			display: block
+			width: 70px
+			height: 70px
+			padding: 0
+			-webkit-transform: translate(0, -50%)
+			-ms-transform: translate(0, -50%)
+			transform: translate(0, -50%)
+			cursor: pointer
+			border: none
+			border-radius: 50%
+			outline: none
+			background: url('../img/dignity-arrow-left.png') no-repeat center center
+			background-color: transparent
+			z-index: 2
+			opacity: 1
+		.slick-prev
+			left: -200px
+		.slick-next
+			right: -200px
+			background: url('../img/dignity-arrow-right.png') no-repeat center center
+			background-color: transparent
+		.slick-prev:hover,
+		.slick-prev:focus,
+		.slick-next:hover,
+		.slick-next:focus
+			opacity: .75
+		/* Dots */
+		.slick-dotted.slick-slider
+		    margin-bottom: 30px
+		.slick-dots
+			position: absolute
+			width: 100%
+			top: 280px
+			text-align: center
+		.slick-dots li
+			display: inline-block
+			width: 30px
+			height: 30px			
+			margin-left: 5px
+			border: 3px solid transparent
+			border-radius: 50%
+			cursor: pointer
+		.slick-dots li button
+			display: block
+			width: 19px
+			height: 19px
+			margin: 3px
+			font-size: 0
+			background: $blue
+			border: none
+			border-radius: 50%
+			cursor: pointer
+			opacity: 1
+		.slick-dots li button:hover
+			opacity: 0.75
+			transition: opacity 0.1s ease-in
+		.slick-dots li.slick-active
+			border: 3px solid $blue
+
+// Dignity end
+
+// Top-products start
+
+.top-products
+	position: absolute
+	width: 100%
+	top: 1700px
+	background: url('../img/bg-top.jpg') no-repeat center center
+	background-size: cover
+	z-index: 12	
+	h2
+		padding-top: 60px
+	ul.buttons
+		text-align: center
+		margin: 40px 0
+	ul.buttons li
+		display: inline-block
+		margin-right: 20px
+		padding: 20px 0
+	ul.buttons li:last-child
+		margin-right: 0
+	ul.buttons li button
+		position: relative
+		font-family: $default-font-bold
+		padding: 15px 35px
+		color: #fff
+		background-color: transparent
+		border: 2px solid #fff
+		border-radius: 20px
+	ul.buttons li button:hover
+		background: $red
+		border-color: $red
+		transition: all 0.1s ease-in
+	ul.buttons li button:active
+		background: #D72936
+		border-color: #D72936
+	ul.buttons li:nth-child(2) button:before
+		content: 'хит продаж!'
+		position: absolute
+		top: -25px
+		left: 65px
+		font-family: $default-font-bold
+		font-size: emy(11)
+		color: #ffa70f
+	ul.buttons li:nth-child(3) button:before
+		content: 'новинка!'
+		position: absolute
+		top: -25px
+		left: 100px
+		font-family: $default-font-bold
+		font-size: emy(11)
+		color: #24a259
+	ul.products-items
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+		padding-bottom: 35px
+		li
+			flex-basis: 350px
+			display: flex
+			flex-direction: column
+			align-items: center
+			justify-content: space-around
+			min-height: 620px
+			margin-bottom: 25px
+			background: #fff
+			border-radius: 30px
+			h3
+				color: #e66d42
+			p 
+				color: #323c7a
+			span
+				font-family: $default-font-bold
+				font-size: emy(24)
+				color: #7c4f93
+			button
+				background: #7c4f93
+			a 
+				font-family: $default-font-bold
+				font-size: emy(17)
+				color: #323c7a
+				line-height: 54px
+		li:hover
+			box-shadow: 0 0 80px 0 #ae4fff
+		li:hover a
+			color: #7C4F93
+		li:hover button
+			background: #CF3287
+		li:hover span
+			color: #CF3287
+		li:hover button:active
+			background: #B9307A
+	.wrapper
+		padding-bottom: 55px
+		button
+			background: #7c4f93
+			position: relative
+
+		button:before
+			content: ""
+			display: block
+			position: absolute
+			top: 30px
+			left: -370px
+			width: 335px
+			height: 1px
+			background: #fff
+		button:after
+			content: ""
+			display: block
+			position: absolute
+			top: 30px
+			right: -370px
+			width: 335px
+			height: 1px
+			background: #fff
+		button:hover
+			background: #CF3287
+		button:active
+			background: #B9307A
+// Top products end
+
+// Brends-grads
+
+.brends-grads
+	position: absolute
+	top: 2860px
+	width: 100%
+	padding-top: 60px
+	text-align: center
+	background: url('../img/bg-brends.png') no-repeat center center
+	background-size: cover
+	h2
+		color: $blue
+		padding-bottom: 15px
+	p
+		margin: 0 auto
+		padding: 40px 0 40px
+		max-width: 650px
+		color: $blue
+	.first-line
+		display: flex
+		height: 320px
+		flex-wrap: wrap
+		justify-content: space-around
+		align-content: space-between
+		align-items: center
+		margin-bottom: 150px
+		img
+			display: block
+			margin: 0 15px
+// Brends-grads end
+
+// Comments
+
+.comments
+	position: absolute
+	width: 100%
+	top: 3665px
+	height: 670px
+	padding-top: 70px
+	background: url('../img/bg-coments.png') no-repeat center center
+	background-size: cover
+	text-align: center
+	z-index: 13
+	p 
+		padding-top: 20px
+		padding-bottom: 30px
+		color: #ffF
+	.comments-slider-wrap
+		max-width: 840px
+		margin: 0 auto
+		color: #fff
+		figure
+			position: relative
+			width: 85px
+			height: 85px
+			margin: 0 auto
+			border-radius: 50%
+			overflow: hidden
+			img
+				position: absolute
+				top: -10px
+				left: 0px
+		figcaption
+			font-weight: bold
+			padding-top: 30px
+			padding-bottom: 30px
+		.slick-prev,
+		.slick-next
+			font-size: 0		
+			line-height: 0
+			position: absolute
+			top: 43px
+			display: block
+			width: 45px
+			height: 75px
+			padding: 0
+			-webkit-transform: translate(0, -50%)
+			-ms-transform: translate(0, -50%)
+			transform: translate(0, -50%)
+			cursor: pointer
+			border: none
+			outline: none
+			background: url('../img/sprite-comments.png') no-repeat 0px center
+			z-index: 2
+		.slick-prev
+			left: 250px
+		.slick-next
+			right: 250px
+			background-position: -58px center
+		.slick-prev:hover,
+		.slick-prev:focus,
+		.slick-next:hover,
+		.slick-next:focus
+			opacity: 0.75
+		/* Dots */
+		.slick-dotted.slick-slider
+		    margin-bottom: 30px
+		.slick-dots
+			position: absolute
+			width: 100%
+			top: 300px
+			text-align: center
+		.slick-dots li
+			display: inline-block
+			width: 30px
+			height: 30px			
+			margin-left: 5px
+			border: 3px solid transparent
+			border-radius: 50%
+			cursor: pointer
+		.slick-dots li button
+			display: block
+			width: 19px
+			height: 19px
+			margin: 3px
+			font-size: 0
+			background: #fff
+			border: none
+			border-radius: 50%
+			cursor: pointer
+			opacity: 1
+		.slick-dots li button:hover
+			opacity: 0.75
+			transition: opacity 0.1s ease-in
+		.slick-dots li.slick-active
+			border: 3px solid #fff
+.delivery
+	position: absolute
+	top: 4335px
+	width: 100%
+	padding-bottom: 70px
+	text-align: center
+	color: $blue
+	background-image: url('../img/bg-devilery.jpg')
+	background-repeat: no-repeat
+	background-position: center center
+	background-size: cover
+	h2
+		margin-top: 60px
+		color: $blue
+	p 
+		font-family: $default-font-bold
+		font-size: emy(17)
+		padding: 40px 0
+	span
+			font-family: $default-font-bold
+			font-size: emy(16)
+	.five-steps
+		width: 700px
+		margin: 0 auto
+		padding: 20px 0 115px
+		background: url('../img/bg-five-steps.png') no-repeat center 10px
+		.clearfix
+			clear: both
+		li 
+			padding-top: 75px
+			p
+				font-family: $arial
+				font-size: emy(14)
+				padding: 0
+				line-height: 16px
+		li:nth-child(odd)
+			float: left
+			.step-text
+				margin-right: 190px
+		li:nth-child(even) 
+			float: right
+			.step-icon
+				margin-right: 190px
+		.step-text
+			display: inline-block
+			width: 300px
+			vertical-align: middle
+			text-align: left
+			h4
+				line-height: 16px
+		.step-icon
+			display: inline-block
+			width: 140px
+			height: 120px
+			vertical-align: middle
+			background: url('../img/sprite-deleviry.svg') no-repeat 0px center
+		.icon-pos2
+			background-position: -154px 0
+		.icon-pos3
+			background-position: -295px 0
+		.icon-pos4
+			background-position: -436px 0
+		.icon-pos5
+			background-position: -572px 0
+	.contact-manager
+		background: #FCFCF5
+		margin-top: 40px
+		padding: 0 10px
+		border: 1px solid #DCDCD4
+		border-radius: 30px
+		h3
+			padding: 50px 0 15px
+			margin: 0
+		p 	
+			padding: 0
+			font-family: $arial
+		button
+			margin: 40px 0		
+			background: #F63341
+		button:hover
+			background: #FF4653
+		button:active
+			background: #D72936
+.gifts
+	position: absolute
+	top: 6140px
+	width: 100%
+	padding-bottom: 120px
+	background: url('../img/bg-gifts.png') no-repeat center center
+	background-size: cover
+	text-align: center
+	z-index: 14
+	.slider-gifts
+		.slick-prev,
+		.slick-next
+			font-size: 0		
+			line-height: 0
+			position: absolute
+			top: 750px
+			display: block
+			width: 45px
+			height: 75px
+			padding: 0
+			-webkit-transform: translate(0, -50%)
+			-ms-transform: translate(0, -50%)
+			transform: translate(0, -50%)
+			cursor: pointer
+			border: none
+			outline: none
+			background: url('../img/sprite-comments.png') no-repeat 0px center
+			z-index: 2
+		.slick-prev
+			left: 430px
+		.slick-next
+			right: 430px
+			background-position: -58px center
+		.slick-prev:hover,
+		.slick-prev:focus,
+		.slick-next:hover,
+		.slick-next:focus
+			opacity: 0.75
+		/* Dots */
+		.slick-dotted.slick-slider
+		    margin-bottom: 30px
+		.slick-dots
+			position: absolute
+			width: 100%
+			top: 738px
+			text-align: center
+		.slick-dots li
+			display: inline-block
+			width: 30px
+			height: 30px			
+			margin-left: 5px
+			border: 3px solid transparent
+			border-radius: 50%
+			cursor: pointer
+		.slick-dots li button
+			display: block
+			width: 19px
+			height: 19px
+			margin: 3px
+			font-size: 0
+			background: #fff
+			border: none
+			border-radius: 50%
+			cursor: pointer
+			opacity: 1
+		.slick-dots li button:hover
+			opacity: 0.75
+			transition: opacity 0.1s ease-in
+		.slick-dots li.slick-active
+			border: 3px solid #fff
+	h2
+		padding-top: 50px
+		padding-bottom: 15px
+	p 
+		color: #fff
+	.form-snake
+		background-position: 0 -20px
+		padding-bottom: 15px
+	.gifts-item
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: space-around
+		margin: 50px 30px
+		height: 620px
+		width: 350px
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: space-around
+		margin-bottom: 25px
+		background: #fff
+		border-radius: 30px
+		text-align: center
+		h3
+			color: #323c7a
+			line-height: 24px
+		span
+			font-family: $default-font-bold
+			font-size: emy(24)
+			line-height: 36px
+			color: #f05030
+		a 
+			font-family: $default-font-bold
+			font-size: emy(17)
+			color: #323c7a
+			line-height: 54px
+		img
+			display: block
+			max-width: 270px
+			height: auto
+	.gifts-item:hover
+		box-shadow: 0 0 30px 0 #fcff00
+	.gifts-item:hover a
+		color: #7C4F93
+	.form-gifts
+		max-width: 1080px
+		margin: 0 auto
+		margin-top: 180px
+		padding-bottom: 30px
+		background: url('../img/bg-gifts-form.jpg') no-repeat center center
+		background-size: cover
+		border: 1px solid #a23721
+		border-radius: 30px
+		p 
+			padding-top: 50px
+			padding-bottom: 30px
+			font-family: $default-font-bold
+			font-size: emy(24)
+			color: #675753
+			line-height: 31px
+		button
+			background: #49C43C
+		button:hover
+			background: #56D549
+		button:active
+			background: #37AC2A
+.cart
+	position: absolute
+	top: 7530px
+	width: 100%
+	background: #F0F0F0
+	padding-bottom: 30px
+	h2
+		padding-top: 140px
+		color: $blue
+.table-scroll
+	overflow: auto
+	table
+		width: 100%
+		text-align: left
+		border-collapse: collapse
+		overflow-x: scroll
+		caption
+			caption-side: bottom
+			margin: 20px auto
+			font-size: 18px
+			line-height: 36px
+			font-family: $default-font-bold
+			color: $blue
+			span
+				font-size: 38px
+				color: $red
+		th, td 
+			border-bottom: 1px solid #ccc
+			padding: 10px
+		th 
+			font-family: $arial
+			text-transform: uppercase
+			font-weight: bold
+			color: $blue
+			.cart-icon
+				display: block
+				font-size: 0
+				width: 25px
+				height: 25px
+				background: url('../img/table-cart.png') no-repeat center center
+		td 
+			.cart-icon2
+				display: block
+				font-size: 0
+				width: 25px
+				height: 30px
+				background: url('../img/bg-cart2.svg') no-repeat center center
+				cursor: pointer
+		.new-select-style-wpandyou select
+			padding: 5px
+			border-radius: 5px
+			background: transparent
+			border: none
+			height: 38px
+			padding: 5px
+			border: 0
+			font-size: 12px
+			color: #4f4f4f
+			line-height: 1
+			appearance: none
+			width: 52px
+		.new-select-style-wpandyou 
+			border: none
+			overflow: hidden
+			height: 38px
+			background: #fff url('../img/table-arrow.png') no-repeat 35px center
+			width: 52px
+			border-radius: 5px
+		a
+			font-family: $arial
+			color: $blue
+			text-decoration: underline
+		a:hover
+			color: $red
+.feedback-wrap
+	width: 100%
+	background: #fff
+	border-radius: 30px
+	.feedback
+		max-width: 730px
+		margin: 0 auto
+		padding: 50px 0 35px
+		text-align: center
+		h3
+			color: $blue
+			margin: 0
+			padding: 0 0 15px
+		p 
+			font-size: emy(14)
+			padding-bottom: 30px
+		input
+			display: inline-block
+			width: 49%
+			margin-right: 10px
+			padding: 15px
+			border-radius: 5px
+			border: 1px solid #cecece
+		input.phone
+			margin-right: 0
+		input.email
+			width: 100%
+			margin: 15px 0 35px
+		button
+			background: #49C43C
+		button:hover
+			background: #56D549
+		button:active
+			background: #37AC2A
+
+// main end
+
+// footer
+// footer-top
+.footer-main
+	position: absolute
+	top: 10535px
+	width: 100%
+	padding-bottom: 65px
+	background: url('../img/bg-footer-top.jpg') no-repeat center center #F0F0F0
+	background-size: cover
+	padding-bottom: 235px
+
+	h2
+		padding-top: 50px
+	.form-snake
+		margin: 10px auto 30px
+	ul.contact-footer
+		display: flex
+		justify-content: space-around
+		flex-wrap: wrap
+		li
+			display: inline-block
+			width: 260px
+			height: 230px
+			margin-top: 20px
+			background-color: #EB3448
+			text-align: center
+			vertical-align: middle
+			font-family: $default-font-bold
+			color: #fff
+			border-radius: 30px
+			font-size: emy(17)
+			>a
+				display: block
+				height: 65px
+				width: 65px
+				border: 2px solid #fff 
+				border-radius: 50%
+				margin: 30px auto 0
+				background: url('../img/sprite-icon-contact.png') no-repeat 0 0
+			a.email-footer
+				background-position: -67px 0
+			a.address-footer
+				background-position: -131px 0
+			a:hover
+				opacity: 0.6
+				transition: opacity 0.1s ease-in
+			address
+				height: 72px
+				font-style: normal
+				padding-top: 30px
+	.copyright-wrapp
+		position: absolute
+		bottom: 0
+		width: 100%
+		background: rgba(0, 0, 0, .6)
+		color: #fff
+		font-size: 14px
+		line-height: 30px
+		text-align: center
+		.copyright
+			position: relative
+			padding: 35px 0
+			.top
+				position: absolute
+				right: 0
+				top: 15px
+				.fa 
+					margin-left: 10px
+					font-size: emy(24)
+			.top:hover
+				opacity: 0.6
+
+@import "media" // Всегда в конце
