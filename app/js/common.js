@@ -138,10 +138,22 @@ $('.slider-gifts').slick({
 // navigation
 ;(function(){
 
-// var navigation = document.getElementById('nav_Mn');
+
 var selectTarget;
 var dropMenu = document.getElementsByClassName('drop-down-menu')[0];
 var dropMenuA = document.getElementsByClassName('toggle-mnu')[0];
+var catalog = document.getElementById('catalog');
+var catalogCoords = catalog.getBoundingClientRect();
+var rewards = document.getElementById('rewards');
+var rewardsCoords = rewards.getBoundingClientRect();
+var mainComments = document.getElementById('main_comments');
+var mainCommentsCoords = mainComments.getBoundingClientRect();
+var mainDelivery = document.getElementById('main_delivery');
+var mainDeliveryCoords = mainDelivery.getBoundingClientRect();
+var mainBasket = document.getElementById('basket');
+var mainBasketCoords = mainBasket.getBoundingClientRect();
+var mainContacts = document.getElementById('contacts');
+var mainContactsCoords = mainContacts.getBoundingClientRect();
   
   function modifClass(){
       dropMenu.classList.remove('active');
@@ -165,27 +177,27 @@ var dropMenuA = document.getElementsByClassName('toggle-mnu')[0];
           modifClass();
           break;
         case 'nav_catalog':
-          window.scrollTo(0,3670);
+          window.scrollTo(0,catalogCoords.top-50);
           modifClass();
           break;
         case 'nav_rewards':
-          window.scrollTo(0,4800);
+          window.scrollTo(0,rewardsCoords.top-50);
           modifClass();
           break;
         case 'nav_reviews':
-          window.scrollTo(0,5600);
+          window.scrollTo(0,mainCommentsCoords.top-50);
           modifClass();
           break;
         case 'nav_delivery':
-          window.scrollTo(0,6300);
+          window.scrollTo(0,mainDeliveryCoords.top-50);
           modifClass();
           break;
         case 'nav_basket':
-          window.scrollTo(0,9600);
+          window.scrollTo(0,mainBasketCoords.top);
           modifClass();
           break;
         case 'nav_contacts':
-          window.scrollTo(0,10500);
+          window.scrollTo(0,mainContactsCoords.top-50);
           modifClass();
           break;
       }   
