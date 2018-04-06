@@ -117,7 +117,10 @@ li.phone
 		margin-left: 20px
 		padding-bottom: 3px
 		border-bottom: 2px dotted #fff
-	
+
+li.basket
+	position: relative
+
 li.basket a
 	display: block
 	font-size: 0
@@ -425,33 +428,38 @@ li.basket a
 		max-width: 520px
 		margin: 0 auto
 		img
-			padding: 0 0 140px
+			padding: 0 0 120px
 			width: 100%
 	.product-content
 		display: flex
-		justify-content: space-between
+		justify-content: center
+		flex-wrap: wrap
 		width: 100%
 		color: $blue
 		text-align: left
+		.btn 
+			background: $blue
+
+		.btn:hover
+				background: #3D4A9C
+		.btn:active
+			background: #1D2976
+		a 
+			color: $blue
+			margin-left: 25px
+			align-self: center
 		.left-content-product
-			flex-basis: 450px
+			flex-basis: 35%
 			span
 				font-family: $default-font-bold
 				font-size: emy(24)
 				color: #f63341
 		.right-content-product
-			flex-basis: 1000px
+			flex-basis: 65%
+
 			p 
 				color: #4c4c4c
-			.btn 
-				background: $blue
-			.btn:hover
-				background: #3D4A9C
-			.btn:active
-				background: #1D2976
-			a 
-				color: $blue
-				margin-left: 25px
+			
 	.slick-slider-product
 		.slick-prev,
 		.slick-next
@@ -1117,17 +1125,19 @@ li.basket a
 	top: 7530px
 	width: 100%
 	background: #F0F0F0
-	padding-bottom: 30px
+	padding-bottom: 180px
 	h2
 		padding-top: 140px
 		color: $blue
 .table-scroll
 	overflow: auto
+	height: 280px
+	margin-bottom: 30px
 	table
 		width: 100%
 		text-align: left
 		border-collapse: collapse
-		overflow-x: scroll
+		
 		caption
 			caption-side: bottom
 			margin: 20px auto
@@ -1294,5 +1304,9 @@ li.basket a
 					font-size: emy(24)
 			.top:hover
 				opacity: 0.6
-
+.positionCart
+	position: absolute
+	font-size: 10px;
+	top: -2px
+	left: 16px
 @import "media" // Всегда в конце

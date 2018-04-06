@@ -132,14 +132,12 @@ $('.slider-gifts').slick({
 
 });
 
-
-
-
 // navigation
 ;(function(){
 
 
 var selectTarget;
+var mgs = document.getElementById('mgs');
 var dropMenu = document.getElementsByClassName('drop-down-menu')[0];
 var dropMenuA = document.getElementsByClassName('toggle-mnu')[0];
 var catalog = document.getElementById('catalog');
@@ -172,6 +170,7 @@ var mainContactsCoords = mainContacts.getBoundingClientRect();
   document.onclick = function(event){
     var target = event.target;
         switch(target.className.split(' ')[0]){
+        case 'mgfs':
         case 'nav_magforms':
           window.scrollTo(0,0);
           modifClass();
@@ -192,6 +191,7 @@ var mainContactsCoords = mainContacts.getBoundingClientRect();
           window.scrollTo(0,mainDeliveryCoords.top-50);
           modifClass();
           break;
+        case 'basket':
         case 'nav_basket':
           window.scrollTo(0,mainBasketCoords.top);
           modifClass();
@@ -206,16 +206,134 @@ var mainContactsCoords = mainContacts.getBoundingClientRect();
         }
         selectTarget = target;
         selectTarget.classList.add('active');
-        
-        
-        console.log(getCoords(target));
-        
-        
-    
     return false;
   }
 
+//cart
+var rainbow = {
+  name: 'RAINBOW 14PC SET',
+  price: 1170000
+};
+var creative = {
+  name: 'Creative 90',
+  price: 2170000
+};
+var unique = {
+  name: 'UNIQUE 30PC SET',
+  price: 2140000
+};
 
+
+
+var cartRaibow = document.getElementById('cartRainbow');
+var tableCart = document.getElementById('tableCart');
+var tableCartBody = tableCart.children[1];
+var cart = document.getElementById('cart');
+var span = document.createElement('span');
+var span1 = document.createElement('span');
+var cartMnDrop = document.getElementById('cartMnDrop');
+var cartMn = document.getElementById('cartMn');
+var selectOpt = document.getElementsByClassName('selectOpt');
+var total = document.getElementById('total');
+var totalSum = 0;
+
+var count = 0;
+
+
+
+
+document.addEventListener('click', function(e){
+  var index = e.target.className.slice(' ').indexOf('productItem');
+  if(index === -1) return false;
+  var nameObj = e.target.parentNode.getElementsByTagName('h3')[0].innerHTML;
+  var spanPrice = e.target.parentNode.getElementsByTagName('span')[0];
+  var priceObj = parseInt(spanPrice.innerHTML.split(' ').join(''));
+  var obj = {
+    name: nameObj,
+    price: priceObj
+  }
+
+  var tr = document.createElement('tr');
+  var td = document.createElement('td');
+  cart.appendChild(span);
+  span.classList.add('positionCart');
+  span.innerHTML = ++count;
+  span1.innerHTML = '(' + count + ')';
+  cartMn.appendChild(span1);
+  cartMnDrop.appendChild(span1);
   
+  
+  tr.innerHTML = '<td>\
+                    <a>' +   obj.name + '</a>\
+                  </td>\
+                  <td>\
+                    <span>' +   obj.price + '</span>\
+                  </td>\
+                  <td>\
+                    <div class="new-select-style-wpandyou">\
+                      <select name="cart" class="selectOpt">\
+                        <option value="1">1</option>\
+                        <option value="2">2</option>\
+                        <option value="3">3</option>\
+                        <option value="4">4</option>\
+                      </select>\
+                    </div>\
+                  </td>\
+                  <td class="sumTr">' +   obj.price + '</td>\
+                  <td>\
+                    <div id="cartDel" class="cart-icon2">1</div>\
+                  </td>';
+  tableCartBody.appendChild(tr);
+  totalSum +=   obj.price;
+  total.innerHTML = totalSum + ' BYR';
+
+     tableCartBody.addEventListener('click', function(e) {
+      var targetCart = e.target;
+        if(targetCart.className == 'selectOpt'){
+            var selectOptClick = targetCart;
+            var trSelect = selectOptClick.closest('tr');
+            var tdSpan = trSelect.getElementsByTagName('span')[0];
+            var tdSum = trSelect.getElementsByClassName('sumTr')[0];
+            selectOptClick.addEventListener('click', function(){
+              for(var i = 0; i < selectOptClick.options.length; i++){
+                var option = selectOptClick.options[i];
+                  if(option.selected){
+                  var value = option.value;
+                 }
+              }
+              tdSum.innerHTML = +tdSpan.innerHTML * value;
+              var colTdSum = tableCartBody.getElementsByClassName('sumTr');
+              var totalSumSelect = 0;
+              for(var i = 0; i < colTdSum.length; i++){
+                 totalSumSelect += +colTdSum[i].innerHTML;
+              }
+              totalSum = totalSumSelect;
+              total.innerHTML = totalSum + ' BYR';    
+            }) 
+        }
+
+        if(targetCart.className == 'cart-icon2'){
+          var tr = targetCart.closest('tr');
+          tableCartBody.removeChild(tr);
+          span.innerHTML = --count;
+          span1.innerHTML = '(' + count + ')';
+          colTdSum = tableCartBody.getElementsByClassName('sumTr');
+          var totalSumSelect = 0;
+          for(var i = 0; i < colTdSum.length; i++){
+             totalSumSelect += +colTdSum[i].innerHTML;
+          }
+          totalSum = totalSumSelect;
+          total.innerHTML = totalSum + ' BYR';
+            
+          return;
+        }
+
+      return false;
+    })
+  })
+
+ 
+
+
 }());
 
