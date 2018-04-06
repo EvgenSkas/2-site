@@ -2,7 +2,6 @@
 $(function() {
 
 
-// navigation
 
 // drop-down-menu
 $(".toggle-mnu").click(function() {
@@ -332,7 +331,52 @@ document.addEventListener('click', function(e){
     })
   })
 
- 
+//--------POPUP-------------------------
+
+
+$('.popup-with-move-anim').magnificPopup({
+    type: 'inline',
+
+    fixedContentPos: false,
+    fixedBgPos: true,
+
+    overflowY: 'auto',
+
+    closeBtnInside: true,
+    preloader: false,
+    
+    midClick: true,
+    removalDelay: 300,
+    mainClass: 'my-mfp-slide-bottom'
+  });
+
+$(".callback").submit(function() {
+    $.ajax({
+      type: "GET",
+      url: "mail.php",
+      data: $("#callback").serialize()
+    }).done(function() {
+      alert("Спасибо за заявку!");
+      setTimeout(function() {
+        $.fancybox.close();
+      }, 1000);
+    });
+    return false;
+  });
+$(".callback2").submit(function() {
+    $.ajax({
+      type: "GET",
+      url: "mail.php",
+      data: $("#callback2").serialize()
+    }).done(function() {
+      alert("Спасибо за заявку!");
+      setTimeout(function() {
+        $.fancybox.close();
+      }, 1000);
+    });
+    return false;
+  });
+});
 
 
 }());
