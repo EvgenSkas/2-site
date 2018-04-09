@@ -128,7 +128,52 @@ $('.slider-gifts').slick({
   
 });
 // sliders end
+//--------POPUP-------------------------
 
+
+$(".popup-mn").magnificPopup({
+    type: 'inline',
+
+    fixedContentPos: false,
+    fixedBgPos: true,
+
+    overflowY: 'auto',
+
+    closeBtnInside: true,
+    preloader: false,
+    
+    midClick: true,
+    removalDelay: 300,
+    mainClass: 'my-mfp-slide-bottom'
+  });
+
+$("#callback").submit(function() {
+    $.ajax({
+      type: "GET",
+      url: "mail.php",
+      data: $("#callback").serialize()
+    }).done(function() {
+      alert("Спасибо за заявку!");
+      setTimeout(function() {
+        $.fancybox.close();
+      }, 1000);
+    });
+    return false;
+  });
+
+$(".callback2").submit(function() {
+    $.ajax({
+      type: "GET",
+      url: "mail.php",
+      data: $("#callback2").serialize()
+    }).done(function() {
+      alert("Спасибо за заявку!");
+      setTimeout(function() {
+        $.fancybox.close();
+      }, 1000);
+    });
+    return false;
+  });
 });
 
 // navigation
@@ -136,67 +181,58 @@ $('.slider-gifts').slick({
 
 
 var selectTarget;
-var mgs = document.getElementById('mgs');
 var dropMenu = document.getElementsByClassName('drop-down-menu')[0];
+var banner = document.getElementsByClassName('banner')[0];
 var dropMenuA = document.getElementsByClassName('toggle-mnu')[0];
+var advantage = document.getElementsByClassName('advantage')[0];
 var catalog = document.getElementById('catalog');
-var catalogCoords = catalog.getBoundingClientRect();
 var rewards = document.getElementById('rewards');
-var rewardsCoords = rewards.getBoundingClientRect();
 var mainComments = document.getElementById('main_comments');
-var mainCommentsCoords = mainComments.getBoundingClientRect();
 var mainDelivery = document.getElementById('main_delivery');
-var mainDeliveryCoords = mainDelivery.getBoundingClientRect();
 var mainBasket = document.getElementById('basket');
-var mainBasketCoords = mainBasket.getBoundingClientRect();
 var mainContacts = document.getElementById('contacts');
-var mainContactsCoords = mainContacts.getBoundingClientRect();
   
   function modifClass(){
       dropMenu.classList.remove('active');
       dropMenuA.classList.remove('on');
   };
 
-  function getCoords(elem) { // кроме IE8-
-  var box = elem.getBoundingClientRect();
-
-  return {
-    top: box.top + pageYOffset,
-    left: box.left + pageXOffset
-  };
-}
 
   document.onclick = function(event){
     var target = event.target;
         switch(target.className.split(' ')[0]){
+        case 'top':
         case 'mgfs':
         case 'nav_magforms':
-          window.scrollTo(0,0);
+          banner.scrollIntoView({block: "start", behavior: "smooth"});
           modifClass();
           break;
+        case 'arrow-down':
+          advantage.scrollIntoView({block: "start", behavior: "smooth"});
+          break;
         case 'nav_catalog':
-          window.scrollTo(0,catalogCoords.top-50);
+          catalog.scrollIntoView({block: "start", behavior: "smooth"});
           modifClass();
           break;
         case 'nav_rewards':
-          window.scrollTo(0,rewardsCoords.top-50);
+          rewards.scrollIntoView({block: "start", behavior: "smooth"});
           modifClass();
           break;
         case 'nav_reviews':
-          window.scrollTo(0,mainCommentsCoords.top-50);
+          mainComments.scrollIntoView({block: "start", behavior: "smooth"});
           modifClass();
           break;
         case 'nav_delivery':
-          window.scrollTo(0,mainDeliveryCoords.top-50);
+          mainDelivery.scrollIntoView({block: "start", behavior: "smooth"});
           modifClass();
           break;
         case 'basket':
         case 'nav_basket':
-          window.scrollTo(0,mainBasketCoords.top);
+          mainBasket.scrollIntoView({block: "start", behavior: "smooth"});
           modifClass();
           break;
         case 'nav_contacts':
-          window.scrollTo(0,mainContactsCoords.top-50);
+          mainContacts.scrollIntoView({block: "start", behavior: "smooth"});
           modifClass();
           break;
       }   
@@ -234,8 +270,9 @@ var cartMnDrop = document.getElementById('cartMnDrop');
 var cartMn = document.getElementById('cartMn');
 var selectOpt = document.getElementsByClassName('selectOpt');
 var total = document.getElementById('total');
+var hideBlockCart = document.getElementById('hideBlockCart');
+var hideBlockCartSpan = hideBlockCart.getElementsByTagName('span')[0];
 var totalSum = 0;
-
 var count = 0;
 
 
@@ -285,6 +322,29 @@ document.addEventListener('click', function(e){
   tableCartBody.appendChild(tr);
   totalSum +=   obj.price;
   total.innerHTML = totalSum + ' BYR';
+  hideBlockCartSpan.innerHTML = obj.name;
+  var handler = function(){
+      hideBlockCart.classList.remove('show');
+      hideBlockCart.style.display = 'none';
+      hideBlockCart.removeEventListener('transitionend', handler);
+    };
+
+  hideBlockCart.style.display = 'block';
+  hideBlockCart.classList.add('show');
+  raf(function(){
+     hideBlockCart.classList.remove('show');
+  })
+
+  hideBlockCart.addEventListener('transitionend', handler)
+
+  function raf(fn) {
+    window.requestAnimationFrame(function() {
+       window.requestAnimationFrame(function(){
+        fn();
+       }
+      )
+    })
+  }
 
      tableCartBody.addEventListener('click', function(e) {
       var targetCart = e.target;
@@ -307,7 +367,8 @@ document.addEventListener('click', function(e){
                  totalSumSelect += +colTdSum[i].innerHTML;
               }
               totalSum = totalSumSelect;
-              total.innerHTML = totalSum + ' BYR';    
+              total.innerHTML = totalSum + ' BYR';
+
             }) 
         }
 
@@ -331,53 +392,9 @@ document.addEventListener('click', function(e){
     })
   })
 
-//--------POPUP-------------------------
-
-
-$('.popup-with-move-anim').magnificPopup({
-    type: 'inline',
-
-    fixedContentPos: false,
-    fixedBgPos: true,
-
-    overflowY: 'auto',
-
-    closeBtnInside: true,
-    preloader: false,
-    
-    midClick: true,
-    removalDelay: 300,
-    mainClass: 'my-mfp-slide-bottom'
-  });
-
-$(".callback").submit(function() {
-    $.ajax({
-      type: "GET",
-      url: "mail.php",
-      data: $("#callback").serialize()
-    }).done(function() {
-      alert("Спасибо за заявку!");
-      setTimeout(function() {
-        $.fancybox.close();
-      }, 1000);
-    });
-    return false;
-  });
-$(".callback2").submit(function() {
-    $.ajax({
-      type: "GET",
-      url: "mail.php",
-      data: $("#callback2").serialize()
-    }).done(function() {
-      alert("Спасибо за заявку!");
-      setTimeout(function() {
-        $.fancybox.close();
-      }, 1000);
-    });
-    return false;
-  });
-});
-
-
 }());
+
+
+
+
 

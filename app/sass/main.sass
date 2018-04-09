@@ -3,6 +3,8 @@
 @import "fonts"
 @import "libs"
 @import "vars"
+*
+	outline: none
 
 *::-webkit-input-placeholder
 	color: #adadad
@@ -38,6 +40,7 @@ body
 	font-family: $arial
 	overflow-x: hidden
 	background: #fff
+	outline: none
 h2
 	font-size: emy(44)
 	line-height: 56px
@@ -61,6 +64,8 @@ a
 	text-decoration: none
 	font-family: $default-font-bold
 	color: #fff
+button 
+	outline: none
 .hidden
 	display: none
 .btn 
@@ -73,6 +78,7 @@ a
 	text-transform: uppercase
 	color: #fff
 	cursor: pointer
+	ounline: none
 
 .blue
 	color: #323c7a
@@ -90,7 +96,6 @@ a
 section.top-panel
 	position: fixed
 	width: 100%
-	padding: 15px 0
 	background: $red
 	font-family: $default-font-bold
 	z-index: 1000
@@ -163,7 +168,6 @@ li.basket a
 .drop-down-menu
 	display: none
 	position: absolute
-	top: 90px
 	width: 100%
 	text-align: center
 	font-size: 31px
@@ -184,7 +188,7 @@ li.basket a
 	background-size: cover
 	b
 	.banner-content
-		padding: 120px 0
+		padding: 80px 0
 		nav
 			display: flex
 		.logo
@@ -196,6 +200,7 @@ li.basket a
 			font-family: $default-font-bold
 			line-height: 44px
 		li
+			padding-left: 10px
 			a
 				font-size: emy(14)
 				padding-bottom: 5px
@@ -240,7 +245,7 @@ li.basket a
 			height: 55px
 			background: url('../img/arrow-down.png') no-repeat center center
 			cursor: pointer
-			margin: 130px 0 0
+			margin: 75px 0 0
 			opacity: .7
 		.arrow-down:hover
 			opacity: 1
@@ -332,6 +337,7 @@ li.basket a
 		.slick-prev:focus,
 		.slick-next:hover,
 		.slick-next:focus
+			outline: none
 		    cursor: pointer
 
 		.slick-prev
@@ -363,9 +369,9 @@ li.basket a
 			cursor: pointer
 		.slick-dots li button
 			display: block
-			width: 19px
-			height: 19px
-			margin: 3px
+			width: 17px
+			height: 17px
+			margin: 16%
 			font-size: 0
 			background: #fff
 			border: none
@@ -375,6 +381,8 @@ li.basket a
 		.slick-dots li button:hover
 			opacity: 0.75
 			transition: opacity 0.1s ease-in
+		.slick-dots li button:focus
+			outline: none
 		.slick-dots li.slick-active
 			border: 3px solid #fff
 		iframe
@@ -509,15 +517,17 @@ li.basket a
 			cursor: pointer
 		.slick-dots li button
 			display: block
-			width: 19px
-			height: 19px
-			margin: 3px
+			width: 17px
+			height: 17px
+			margin: 15%
 			font-size: 0
 			background: $blue
 			border: none
 			border-radius: 50%
 			cursor: pointer
 			opacity: 1
+		.slick-dots li button:focus
+			outline: none
 		.slick-dots li button:hover
 			opacity: 0.75
 			transition: opacity 0.1s ease-in
@@ -564,7 +574,7 @@ li.basket a
 	img
 		position: absolute
 		top: -40px
-		right: 80px
+		left: 1100px
 	.slider-dignity-item
 		padding: 0 40px
 		.advantage-icons
@@ -1245,7 +1255,7 @@ li.basket a
 	padding-bottom: 235px
 
 	h2
-		padding-top: 50px
+		padding-top: 60px
 	.form-snake
 		margin: 10px auto 30px
 	ul.contact-footer
@@ -1309,4 +1319,66 @@ li.basket a
 	font-size: 10px;
 	top: -2px
 	left: 16px
+
+.popup-form
+	text-align: center
+	max-height: 510px
+	max-width: 480px
+	padding: 40px 85px
+	border-radius: 25px
+	font-size: emy(14)
+	p, h3
+		color: #323c7a
+	p
+		display: block
+		line-height: 1.2
+		padding-bottom: 20px
+		width: 250px
+		font-size: emy(14)
+		margin: 0 auto 20px
+	input
+		display: block
+		width: 100%
+		padding: 15px 10px
+		margin-bottom: 15px
+		border-radius: 5px
+		border: 2px solid #dedede
+		color: #000
+		font-size: emy(14)
+	input:focus, textarea:focus
+		box-shadow: inset 0 0 1px 1px $blue
+	.btn
+		margin-top: 30px
+		background-color: #49C43C
+
+.hide
+	position: fixed
+	display: none
+	opacity: 0
+	max-width: 400px
+	max-height: 200px
+	padding: 40px
+	border-radius: 25px
+	background-color: #000
+	text-align: center
+	color: #fff
+	top: 30%
+	left: 50%
+	transform: translateY(-100px)
+	transform: translateX(-200px)
+	z-index: 1000
+	transition: opacity 1s
+	
+	img
+		display: block
+		margin: 0 auto
+	span
+		display: block
+		margin: 15px 0 10px
+	p
+		font-family: $default-font-bold
+		font-size: emy(24)
+.show
+	
+	opacity: 1
 @import "media" // Всегда в конце

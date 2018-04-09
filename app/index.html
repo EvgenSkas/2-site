@@ -33,13 +33,12 @@
 				<ul class="top-panel-content">
 					<li class="logo"><a href="index.html"><img class="mgfs" src="img/logo.png" alt="logo"></a></li>
 					<li class="phone">
-						<a href="#" class="icon-phone">1</a>
+						<a href="#callback" class="icon-phone popup-mn">1</a>
 						<span>+375 (29) 633 44 31</span>
-						<a href="#">заказать обратный звонок</a>
+						<a href="#callback" class="popup-mn">заказать обратный звонок</a>
 					</li>
 					<li class="basket" id="cart">
 						<a href="#" class="nav_basket">1</a>
-
 					</li>
 					<li class="m-menu">
 						<a href="#" class="toggle-mnu hidden-lg"><span></span></a>
@@ -76,7 +75,7 @@
 						<p>Покупаете MAGFORMERS в подарок?<br>
 						Закажите бесплатную подарочную упаковку</p>
 					</div>
-					<button class="btn">Заказать!</button>
+					<a href="#callback" class="popup-mn"><button class="btn">Заказать!</button></a>
 					<div class="wrapper">
 						<div class="arrow-down"></div>
 					</div>
@@ -387,7 +386,7 @@
 					<div class="contact-manager">
 						<h3>Нужна доставка в другой город Республики Беларусь?</h3>
 						<p>Поручите нашему менеджеру подобрать самый выгодный вариант</p>
-						<button class="btn">Поручить</button>
+						<a href="#callback" class="popup-mn"><button  class="btn">Поручить</button></a>
 					</div>
 				</div>
 			</section>
@@ -436,7 +435,7 @@
 					</div>
 					<div class="form-gifts">
 						<p>Разве вы не хотите узнать,<br> какой подарок может стать Вашим?</p>
-						<button class="btn">Хочу узнать!</button>
+						<a href="#callback" class="popup-mn"><button class="btn popup-mn">Хочу узнать!</button></a>
 					</div>
 				</div>
 			</section>
@@ -478,7 +477,7 @@
 				<div class="form-snake"></div>
 				<ul class="contact-footer">
 					<li>
-						<a href="#" class="phone-footer"></a>
+						<a href="#callback" class="phone-footer popup-mn"></a>
 						<address><a href="">+375 (29) 633 44 31<br>+375 (33) 699 44 07</a></address>
 					</li>
 					<li>
@@ -494,9 +493,9 @@
 			<div class="copyright-wrapp">
 				<div class="container">
 					<div class="copyright">
-						<p>© 2015  Magformers.by<br>Создание и продвижение сайта </p>
-						<a href="https://www.imedia.by/" target="_blank"><img src="img/logo-copyright.png" alt="IMEDIA"></a>
-						<a href="#banner" class="top" onclick =window.scrollTo(0,0)>в начало<i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+						<p>© 2018  Magformers.by<br>Создание и продвижение сайта </p>
+						<a href="https://www.imedia.by/" target="_blank"><img src="img/es.png" alt="EvgenSkas"></a>
+						<a href="#banner" class="top">в начало<i class="fa fa-chevron-up" aria-hidden="true"></i></a>
 					</div>
 				</div>
 			</div>
@@ -510,14 +509,18 @@
 			<input type="hidden" name="form_subject" value="Новая заявка с сайта А8">
 			<!-- END Hidden Required Fields -->
 
-			<h2>Обратная связь</h2>
-			<p>Пожалуйста, заполните форму заказа 
-			и мы свами свяжемся</p>
-			<input type="text" name="phone" placeholder="Контактный телефон*" required>
-			<input type="text" name="email" placeholder="E-mail*">
-			<textarea name="comments" cols="30" rows="6" placeholder="Ваши коментарии..."></textarea>
+			<h3>Оформление заказа</h3>
+			<p>Перезвоним Вам в течении 45 минут!<br>«Ваши данные в безопасности»</p>
+			<input type="text" name="phone" placeholder="+375(--) --- -- --" required>
+			<input type="text" name="email" placeholder="Ваше имя">
 			<button class="btn">Отправить</button>
 		</form>
+	</div>
+
+	<div id="hideBlockCart" class="hide">
+		<img src="img/basket.png" alt="cart">
+		<span></span>
+		<p>Добавлен в карзину!</p>
 	</div>
 	<script src="js/scripts.min.js"></script>
 

@@ -18,6 +18,7 @@ gulp.task('js', function() {
 	return gulp.src([
 		'app/libs/jquery/dist/jquery.min.js',
 		'app//libs/slick/slick.min.js',
+		'app//libs/smoothscroll-polyfill/dist/smoothscroll.min.js',
 		'app//libs/magnific-popup/dist/jquery.magnific-popup.min.js',
 		'app/js/common.js', // Всегда в конце
 		])
