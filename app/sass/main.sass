@@ -69,6 +69,7 @@ button
 .hidden
 	display: none
 .btn 
+
 	padding: 20px 60px
 	border: none
 	border-radius: 6px
@@ -177,7 +178,6 @@ li.basket a
 	li:hover
 		background: rgba(220, 51, 60, 0.95)
 		transition: background 0.3s ease-in
-	a 
 .drop-down-menu.active
 	display: block
 // top-panel end
@@ -189,6 +189,7 @@ li.basket a
 	b
 	.banner-content
 		padding: 80px 0
+		text-align: center
 		nav
 			display: flex
 		.logo
@@ -220,8 +221,8 @@ li.basket a
 			color: #fff
 			padding: 30px 0 60px 
 			border-top: 1px solid #f6303e
-		button
-			display: block
+		a.popup-mn
+			display: inline-block
 			margin: 0 auto
 			font-size: emy(24)
 			font-family: $default-font-bold
@@ -233,12 +234,13 @@ li.basket a
 			border: none
 			border-radius: 3px
 			cursor: pointer
-		button:hover
+		a.popup-mn:hover
 			background: #FD3B49
 			box-shadow: 0 0 30px 0px #FD3B49
-		button:active
+		a.popup-mn:active
 			background: #d72936
 			box-shadow: 0 0 30px 0px #d72936
+
 		.arrow-down
 			display: inline-block
 			width: 55px
@@ -447,6 +449,7 @@ li.basket a
 		text-align: left
 		.btn 
 			background: $blue
+			margin-top: 10px
 
 		.btn:hover
 				background: #3D4A9C
@@ -739,6 +742,8 @@ li.basket a
 				color: #7c4f93
 			button
 				background: #7c4f93
+			button:hover
+				background: #CF3287
 			a 
 				font-family: $default-font-bold
 				font-size: emy(17)
@@ -748,8 +753,6 @@ li.basket a
 			box-shadow: 0 0 80px 0 #ae4fff
 		li:hover a
 			color: #7C4F93
-		li:hover button
-			background: #CF3287
 		li:hover span
 			color: #CF3287
 		li:hover button:active
@@ -820,7 +823,7 @@ li.basket a
 .comments
 	position: absolute
 	width: 100%
-	top: 3665px
+	top: 3720px
 	height: 670px
 	padding-top: 70px
 	background: url('../img/bg-coments.png') no-repeat center center
@@ -846,7 +849,7 @@ li.basket a
 				position: absolute
 				top: -10px
 				left: 0px
-		figcaption
+		.figcaption
 			font-weight: bold
 			padding-top: 30px
 			padding-bottom: 30px
@@ -921,6 +924,8 @@ li.basket a
 	background-repeat: no-repeat
 	background-position: center center
 	background-size: cover
+	.container
+		background: url('../img/bg-five-steps.png') no-repeat center 290px
 	h2
 		margin-top: 60px
 		color: $blue
@@ -931,13 +936,14 @@ li.basket a
 	span
 			font-family: $default-font-bold
 			font-size: emy(16)
+	.clearfix
+		clear: both
 	.five-steps
 		width: 700px
 		margin: 0 auto
 		padding: 20px 0 115px
-		background: url('../img/bg-five-steps.png') no-repeat center 10px
-		.clearfix
-			clear: both
+		
+		
 		li 
 			padding-top: 75px
 			p
@@ -953,6 +959,8 @@ li.basket a
 			float: right
 			.step-icon
 				margin-right: 190px
+		li:last-child
+			margin-bottom: 100px
 		.step-text
 			display: inline-block
 			width: 300px
@@ -977,7 +985,7 @@ li.basket a
 	.contact-manager
 		background: #FCFCF5
 		margin-top: 40px
-		padding: 0 10px
+		padding: 0px 10px 30px
 		border: 1px solid #DCDCD4
 		border-radius: 30px
 		h3
@@ -986,12 +994,13 @@ li.basket a
 		p 	
 			padding: 0
 			font-family: $arial
-		button
-			margin: 40px 0		
+		a.popup-mn
+			display: inline-block
+			margin: 40px 0 0
 			background: #F63341
-		button:hover
+		a.popup-mn:hover
 			background: #FF4653
-		button:active
+		a.popup-mn:active
 			background: #D72936
 .gifts
 	position: absolute
@@ -1124,11 +1133,12 @@ li.basket a
 			font-size: emy(24)
 			color: #675753
 			line-height: 31px
-		button
+		a.popup-mn
+			display: inline-block
 			background: #49C43C
-		button:hover
+		a.popup-mn:hover
 			background: #56D549
-		button:active
+		a.popup-mn:active
 			background: #37AC2A
 .cart
 	position: absolute
@@ -1211,6 +1221,7 @@ li.basket a
 	background: #fff
 	border-radius: 30px
 	.feedback
+		position: relative
 		max-width: 730px
 		margin: 0 auto
 		padding: 50px 0 35px
@@ -1233,14 +1244,35 @@ li.basket a
 			margin-right: 0
 		input.email
 			width: 100%
-			margin: 15px 0 35px
-		button
+			margin: 15px 0 55px
+		input.btn
 			background: #49C43C
-		button:hover
+		input.btn:hover
 			background: #56D549
-		button:active
+		input.btn:active
 			background: #37AC2A
-
+		.tooltip
+			display: none
+			position: absolute
+			top: 280px
+			left: 30%
+			padding: 10px 3px
+			border: 1px solid #ccc
+			border-radius: 5px
+			background: #ccc
+			color: #fff
+		.tooltip:before
+			display: block
+			content: ""
+			position: absolute
+			top: 100%
+			left: 47%
+			width: 20px
+			height: 20px
+			border-top: 10px solid #ccc
+			border-left: 10px solid transparent
+			border-right: 10px solid transparent
+			border-bottom: 0
 // main end
 
 // footer
@@ -1381,4 +1413,6 @@ li.basket a
 .show
 	
 	opacity: 1
+
+
 @import "media" // Всегда в конце

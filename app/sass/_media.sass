@@ -34,6 +34,8 @@
 				left: 0px
 			.slick-next
 				right: 0px
+	.pop-up-slider
+		padding-bottom: 30px
 	.top-products
 		ul.products-items
 			justify-content: space-around
@@ -78,13 +80,17 @@
 		padding: 30px 0
 		.product-img
 			img
-				padding-bottom: 30px
-	.pop-up-slider
+				padding-bottom: 32px
+		.right-content-product
+			p:last-child
+				display: none
 		.slick-slider-product
 			.slick-dots
 				top: 330px
 		.close
 			top: 0
+	.top-products
+		top: 1685px
 	.brends-grads
 		top: 4150px
 	.comments
@@ -161,42 +167,44 @@
 				right: 0px
 	.delivery
 		top: 5970px
-		.five-steps
-			width: 100%
+		.container
 			background-image: none
-			padding-bottom: 30px
-			li,
-			li:nth-child(odd),
-			li:nth-child(even)
-				position: relative
-				width: 300px
-				display: block
-				margin: 0 auto
-				text-align: center
-				padding-top: 160px
-				.step-text
-					text-align: center
+			.five-steps
+				width: 100%
+				background-image: none
+				padding-bottom: 30px
+				li,
+				li:nth-child(odd),
+				li:nth-child(even)
+					position: relative
+					width: 300px
 					display: block
-					margin-right: 0
-				.step-icon
-					margin-right: 0
-					position: absolute
-					top: 25px
-					left: 100px
-				.icon-pos2
-					background-position: -154px 0
-				.icon-pos3
-					background-position: -295px 0
-				.icon-pos4
-					background-position: -436px 0
-				.icon-pos5
-					background-position: -572px 0
-			li:nth-child(even)
-				float: none
-			li:nth-child(odd)
-				float: none
-				.step-text
-					margin-right: 0
+					margin: 0 auto
+					text-align: center
+					padding-top: 160px
+					.step-text
+						text-align: center
+						display: block
+						margin-right: 0
+					.step-icon
+						margin-right: 0
+						position: absolute
+						top: 25px
+						left: 100px
+					.icon-pos2
+						background-position: -154px 0
+					.icon-pos3
+						background-position: -295px 0
+					.icon-pos4
+						background-position: -436px 0
+					.icon-pos5
+						background-position: -572px 0
+				li:nth-child(even)
+					float: none
+				li:nth-child(odd)
+					float: none
+					.step-text
+						margin-right: 0
 	.gifts
 		top: 7988px
 		.slider-gifts
