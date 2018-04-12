@@ -1251,28 +1251,7 @@ li.basket a
 			background: #56D549
 		input.btn:active
 			background: #37AC2A
-		.tooltip
-			display: none
-			position: absolute
-			top: 280px
-			left: 30%
-			padding: 10px 3px
-			border: 1px solid #ccc
-			border-radius: 5px
-			background: #ccc
-			color: #fff
-		.tooltip:before
-			display: block
-			content: ""
-			position: absolute
-			top: 100%
-			left: 47%
-			width: 20px
-			height: 20px
-			border-top: 10px solid #ccc
-			border-left: 10px solid transparent
-			border-right: 10px solid transparent
-			border-bottom: 0
+		
 // main end
 
 // footer
@@ -1382,6 +1361,8 @@ li.basket a
 	.btn
 		margin-top: 30px
 		background-color: #49C43C
+	.btn.btn-close
+		top: 200px
 
 .hide
 	position: fixed
@@ -1399,20 +1380,44 @@ li.basket a
 	transform: translateY(-100px)
 	transform: translateX(-200px)
 	z-index: 1000
-	transition: opacity 1s
+	transition: opacity 1.5s ease-in
 	
 	img
 		display: block
 		margin: 0 auto
+		margin-bottom: 10px
 	span
 		display: block
 		margin: 15px 0 10px
 	p
 		font-family: $default-font-bold
-		font-size: emy(24)
+		font-size: emy(18)
 .show
 	
 	opacity: 1
 
-
+.tooltip
+	display: none
+	width: 275px
+	position: absolute
+	bottom: 22%
+	left: 31%
+	padding: 10px 3px
+	border: 1px solid #ccc
+	border-radius: 5px
+	background: #ccc
+	color: #fff
+	z-index: 9999999
+.tooltip:before
+	display: block
+	content: ""
+	position: absolute
+	top: 100%
+	left: 47%
+	width: 20px
+	height: 20px
+	border-top: 10px solid #ccc
+	border-left: 10px solid transparent
+	border-right: 10px solid transparent
+	border-bottom: 0
 @import "media" // Всегда в конце

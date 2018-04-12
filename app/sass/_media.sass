@@ -106,9 +106,18 @@
 				right: 250px
 	.cart
 		top: 8900px
-		.feedback-wrap .feedback input
-			width: 80%
-			margin: 10px 0
+		.feedback-wrap 
+			.feedback 
+				padding-bottom: 10px
+				input
+					width: 80%
+					margin: 10px 0
+				input.email
+					margin-bottom: 30px
+				.tooltip
+					padding: 3px 10px
+					bottom: 16%
+
 	.footer-main
 		top: 11940px
 /* Small Devices, Tablets */
@@ -165,6 +174,8 @@
 				left: 0px
 			.slick-next
 				right: 0px
+			.slick-dots
+				margin-top: 10px
 	.delivery
 		top: 5970px
 		.container
@@ -214,6 +225,12 @@
 				right: 0px
 	.cart
 		top: 9600px
+		.feedback-wrap 
+			.feedback 
+
+				.tooltip
+					left: 22%
+					bottom: 16%
 	.footer-main
 		top: 12840px
 	.hide
@@ -222,12 +239,21 @@
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px)
 	/**/
+	.banner
+		.banner-content
+			h2
+				font-size: emy(24)
+		.wrapper
+			p
+				font-size: emy(18)
+				line-height: 18px
 	li.phone
 		display: none
 	h2
-		font-size: emy(34)
-		line-height: 34px
+		font-size: emy(24)
+		line-height: 24px
 		margin-bottom: 50px
+
 	.statistics
 		ul
 			justify-content: space-around
@@ -250,10 +276,8 @@
 			padding-bottom: 60px
 			.slick-dots
 				top: 400px
-			.slick-dots li button
-				background: $blue
-			.slick-dots li.slick-active
-				border: 3px solid $blue
+			.slick-dots li
+				display: none
 	.delivery
 		top: 6480px
 	.gifts
@@ -261,11 +285,21 @@
 	.cart
 		top: 10000px
 		padding-bottom: 400px
+		.feedback-wrap 
+			.feedback 
+				.tooltip
+					max-width: 70%
+					line-height: 1
+					margin-left: 45px
+					padding: 3px 10px
+					bottom: 16%
+					left: 0%
 	.footer-main
-		top: 13420px
+		top: 13610px
 /* Custom, iPhone Retina */
 @media only screen and (max-width : 320px)
 	/**/
+
 	li.phone,
 	li.basket
 		display: none
@@ -281,7 +315,7 @@
 	.cart
 		top: 10500px
 	.footer-main
-		top: 14320px
+		top: 14120px
 /*==========  Mobile First  ==========*/
 
 /* Custom, iPhone Retina */

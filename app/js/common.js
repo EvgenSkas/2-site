@@ -146,7 +146,7 @@ $(function(){
       mainClass: 'my-mfp-slide-bottom'
     });
 
-  $("#callback").submit(function() {
+/*  $("#callback").submit(function() {
       $.ajax({
         type: "GET",
         url: "mail.php",
@@ -158,20 +158,10 @@ $(function(){
         }, 1000);
       });
       return false;
-    });
-  $(".callback2").submit(function() {
-      $.ajax({
-        type: "GET",
-        url: "mail.php",
-        data: $("#callback2").serialize()
-      }).done(function() {
-        alert("Спасибо за заявку!");
-        setTimeout(function() {
-          $.fancybox.close();
-        }, 1000);
-      });
-      return false;
-    });
+    });*/
+  $(".btn").click(function(){
+    
+  });
 }());
 
 // navigation
@@ -190,11 +180,19 @@ $(function(){
   var mainBasket = document.getElementById('basket');
   var mainContacts = document.getElementById('contacts');
     
-   function modifClass(){
-       dropMenu.classList.remove('active');
-       dropMenuA.classList.remove('on');
-   };
+  function modifClass(){
+    dropMenu.classList.remove('active');
+    dropMenuA.classList.remove('on');
+  };
 
+  function raf(fn) {
+    window.requestAnimationFrame(function() {
+       window.requestAnimationFrame(function(){
+        fn();
+       }
+      )
+    })
+  }
 
   document.onclick = function(event){
     var target = event.target;
@@ -318,15 +316,6 @@ $(function(){
 
     hideBlockCart.addEventListener('transitionend', handler)
 
-    function raf(fn) {
-      window.requestAnimationFrame(function() {
-         window.requestAnimationFrame(function(){
-          fn();
-         }
-        )
-      })
-    }
-
     tableCartBody.addEventListener('click', function(e) {
       var targetCart = e.target;
       if(targetCart.className == 'selectOpt'){
@@ -372,59 +361,61 @@ $(function(){
         return false;
     })
   })
-}());
-  //form validation
+
+//form validation
 
   var feedback = document.querySelector('.feedback');
-  var tooltip = document.querySelector('.tooltip');
+  var feedbackRequired = feedback.querySelectorAll('[data-valid="required"]');
+  var hiddenForm = document.getElementById('callback');
+  var hiddenFormRequired = hiddenForm.querySelectorAll('[data-valid="required"]');
+  
+  var hideBlockCartForm = document.querySelector('#hideBlockCartForm');
+
 
   var validation = (function(){
-    var me = {};
+    var object = {};
   
-    me.isName = function(name) {
+    object.isName = function(name) {
       var re = /\D/;
       return re.test(name);
     }
   
-    me.isMail = function(email) {
+    object.isMail = function(email) {
       var re = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
       return re.test(email);
     }
-    me.isPhone = function(phone) {
+    object.isPhone = function(phone) {
       var re = /^\d{12}$/;
       return re.test(phone);
     }
-    me.isNotEmpty = function(str) {
+    object.isNotEmpty = function(str) {
       return !!str;
     }
-    return me;
+    return object;
   }());
 
-  function isValid(){
+  function isValid(formAttrReq, form){
+    var tooltip = form.querySelector('.tooltip');
+    var phoneForm = form.querySelector('[data-phone]');
+    var emailForm = form.querySelector('[data-email]');
 
-    if(!isAllCompleted(document.querySelectorAll('[data-valid="required"]'))) {
+    if(!isAllCompleted(formAttrReq)) {
       tooltip.style.display = 'block';
       tooltip.innerHTML = 'Вам необходимо заполнить все поля!';
       return false;
-    } else if(!validation.isName(document.querySelector('[data-name]').value)) {
-      document.querySelector('[data-name]').style.backgroundColor = '#FCB2B2';
-      tooltip.style.display = 'block';
-      tooltip.innerHTML = 'Вы неверно ввели имя!';
-      return false;
-    } else if(!validation.isPhone(document.querySelector('[data-phone]').value)) {
-      document.querySelector('[data-name]').style.backgroundColor = 'transparent';
-      document.querySelector('[data-phone]').style.backgroundColor = '#FCB2B2';
+    } else if(!validation.isPhone(phoneForm.value)) {
+      phoneForm.style.backgroundColor = '#FCB2B2';
       tooltip.style.display = 'block';
       tooltip.innerHTML = 'Вы неверно ввели томер телефона!';
       return false;
-    } else if(!validation.isMail(document.querySelector('[data-email]').value)) {
-      document.querySelector('[data-phone]').style.backgroundColor = 'transparent';
-      document.querySelector('[data-email]').style.backgroundColor = '#FCB2B2';
+    } else if(!validation.isMail(emailForm.value)) {
+      phoneForm.style.backgroundColor = 'transparent';
+      emailForm.style.backgroundColor = '#FCB2B2';
       tooltip.style.display = 'block';
       tooltip.innerHTML = 'Вы неверно ввели email!';
       return false;
     } 
-     document.querySelector('[data-email]').style.backgroundColor = 'transparent';
+    emailForm.style.backgroundColor = 'transparent';
     tooltip.style.display = 'none';
     return true;
   }
@@ -441,15 +432,57 @@ $(function(){
   
   feedback.addEventListener('click', function(e){
        var target = e.target;
-       if((target.className === 'btn') && isValid()){
-        feedback.submit();
-       }
+       if((target.className === 'btn') && isValid(feedbackRequired, feedback)){
+        
+        var handler = function(){
+          hideBlockCartForm.classList.remove('show');
+          hideBlockCartForm.style.display = 'none';
+          hideBlockCartForm.removeEventListener('transitionend', handler);
+        };
+
+        hideBlockCartForm.style.display = 'block';
+        hideBlockCartForm.classList.add('show');
+        raf(function(){
+           hideBlockCartForm.classList.remove('show');
+        })
+
+        hideBlockCartForm.addEventListener('transitionend', handler);
+         for( var i = 0; i < feedbackRequired.length; i++) {
+          feedbackRequired[i].value = '';
+          feedbackRequired[i].style.backgroundColor = 'transparent';
+          }
+     }
        return false;
   })
 
-  document.querySelector('[data-phone]').addEventListener('onfocus', function(){
-    document.querySelector('[data-phone]').style.backgroundColor = 'none';
+  hiddenForm.addEventListener('click', function(e){
+     var target = e.target;
+     if((target.className.indexOf('btn') >= 0) && isValid(hiddenFormRequired, hiddenForm)){
+      $.magnificPopup.close();
+      var handler = function(){
+        hideBlockCartForm.classList.remove('show');
+        hideBlockCartForm.style.display = 'none';
+        hideBlockCartForm.removeEventListener('transitionend', handler);
+      };
+
+      hideBlockCartForm.style.display = 'block';
+      hideBlockCartForm.classList.add('show');
+      raf(function(){
+         hideBlockCartForm.classList.remove('show');
+      })
+
+      hideBlockCartForm.addEventListener('transitionend', handler);
+       for( var i = 0; i < hiddenFormRequired.length; i++) {
+        hiddenFormRequired[i].value = '';
+        hiddenFormRequired[i].style.backgroundColor = 'transparent';
+        }
+
+   }
+     return false;
   })
+
+}());
+
 
 
 
