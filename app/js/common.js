@@ -146,7 +146,7 @@ $(function(){
       mainClass: 'my-mfp-slide-bottom'
     });
 
-/*  $("#callback").submit(function() {
+  $("#callback").submit(function() {
       $.ajax({
         type: "GET",
         url: "mail.php",
@@ -158,10 +158,8 @@ $(function(){
         }, 1000);
       });
       return false;
-    });*/
-  $(".btn").click(function(){
-    
-  });
+    });
+
 }());
 
 // navigation
