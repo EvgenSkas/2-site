@@ -1,4 +1,3 @@
-
 $(function(){
   // drop-down-menu
   $(".toggle-mnu").click(function() {
@@ -13,10 +12,10 @@ $(function(){
   // sliders
 
   $('.slick-slider').slick({
-  	dots: true,
-  	infinite: true,
-  	slidesToShow: 1,
-  	slidesToScroll: 1
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1
     
   });
   $('.slick-slider-product').slick({
@@ -230,11 +229,6 @@ $(function(){
           modifClass();
           break;
       }   
-        if(selectTarget) {
-          selectTarget.classList.remove('active');
-        }
-        selectTarget = target;
-        selectTarget.classList.add('active');
     return false;
   }
 
@@ -480,9 +474,3 @@ $(function(){
   })
 
 }());
-
-
-
-
-
-

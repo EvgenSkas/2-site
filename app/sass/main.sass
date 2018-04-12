@@ -1210,6 +1210,9 @@ li.basket a
 			background: #fff url('../img/table-arrow.png') no-repeat 35px center
 			width: 52px
 			border-radius: 5px
+		.new-select-style-wpandyou select option
+			width: 50px
+			height: 70px
 		a
 			font-family: $arial
 			color: $blue
@@ -1224,7 +1227,7 @@ li.basket a
 		position: relative
 		max-width: 730px
 		margin: 0 auto
-		padding: 50px 0 35px
+		padding: 50px 0 20px
 		text-align: center
 		h3
 			color: $blue
@@ -1232,7 +1235,6 @@ li.basket a
 			padding: 0 0 15px
 		p 
 			font-size: emy(14)
-			padding-bottom: 30px
 		input
 			display: inline-block
 			width: 49%
@@ -1245,11 +1247,12 @@ li.basket a
 		input.email
 			width: 100%
 			margin: 15px 0 55px
-		input.btn
+		button.btn
+			margin-top: 20px
 			background: #49C43C
-		input.btn:hover
+		button.btn:hover
 			background: #56D549
-		input.btn:active
+		button.btn:active
 			background: #37AC2A
 		
 // main end
@@ -1335,7 +1338,7 @@ li.basket a
 	text-align: center
 	max-height: 510px
 	max-width: 480px
-	padding: 40px 85px
+	padding: 30px 60px
 	border-radius: 25px
 	font-size: emy(14)
 	p, h3
@@ -1343,10 +1346,9 @@ li.basket a
 	p
 		display: block
 		line-height: 1.2
-		padding-bottom: 20px
-		width: 250px
+		padding-bottom: 5px
 		font-size: emy(14)
-		margin: 0 auto 20px
+		margin: 0 auto 5px
 	input
 		display: block
 		width: 100%
@@ -1359,10 +1361,15 @@ li.basket a
 	input:focus, textarea:focus
 		box-shadow: inset 0 0 1px 1px $blue
 	.btn
-		margin-top: 30px
+		margin-top: 40px
 		background-color: #49C43C
-	.btn.btn-close
-		top: 200px
+	.tooltip
+		bottom: 21%
+		left: 26%
+		margin-right: 50px
+		line-height: 1
+		padding: 3px 5px
+		max-width: 230px
 
 .hide
 	position: fixed
@@ -1400,6 +1407,7 @@ li.basket a
 	display: none
 	width: 275px
 	position: absolute
+	text-align: center
 	bottom: 22%
 	left: 31%
 	padding: 10px 3px
