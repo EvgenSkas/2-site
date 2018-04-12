@@ -315,7 +315,7 @@ $(function(){
           var trSelect = selectOptClick.closest('tr');
           var tdSpan = trSelect.getElementsByTagName('span')[0];
           var tdSum = trSelect.getElementsByClassName('sumTr')[0];
-          selectOptClick.addEventListener('click', function(){
+          selectOptClick.addEventListener('change', function(){
             for(var i = 0; i < selectOptClick.options.length; i++){
               var option = selectOptClick.options[i];
                 if(option.selected){
